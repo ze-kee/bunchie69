@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunchie Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="./bunchie22.png" alt="Bunchie" class="header-icon"> Bunchie Generator</h1>
+            <p>Create your own custom bunchie!</p>
+        </header>
+
+        <main>
+            <div class="workspace">
+                <div class="canvas-container">
+                    <canvas id="imageCanvas" width="600" height="400"></canvas>
+                    <div class="canvas-overlay">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <span class="upload-icon">📁</span>
+                                <p>Click to upload an image or drag and drop</p>
+                                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        <button id="downloadBtn" class="download-btn" style="display: none;">📥 Download Image</button>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="control-section">
+                        <h3>🎨 Basic Adjustments</h3>
+                        <div class="adjustment-controls">
+                            <label>
+                                Brightness:
+                                <input type="range" id="brightness" min="0" max="200" value="100">
+                                <span class="value-display" id="brightnessValue">100%</span>
+                            </label>
+                            <label>
+                                Contrast:
+                                <input type="range" id="contrast" min="0" max="200" value="100">
+                                <span class="value-display" id="contrastValue">100%</span>
+                            </label>
+                            <label>
+                                Saturation:
+                                <input type="range" id="saturation" min="0" max="200" value="100">
+                                <span class="value-display" id="saturationValue">100%</span>
+                            </label>
+                            <label>
+                                Hue Rotation:
+                                <input type="range" id="hue" min="0" max="360" value="0">
+                                <span class="value-display" id="hueValue">0°</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>🌈 Color Filters</h3>
+                        <div class="filter-controls">
+                            <button class="filter-btn" data-filter="none">Normal</button>
+                            <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+                            <button class="filter-btn" data-filter="sepia">Sepia</button>
+                            <button class="filter-btn" data-filter="invert">Invert</button>
+                            <button class="filter-btn" data-filter="blur">Blur</button>
+                            <button class="filter-btn" data-filter="vintage">Vintage</button>
+                            <button class="filter-btn" data-filter="cool">Cool</button>
+                            <button class="filter-btn" data-filter="warm">Warm</button>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>🎭 Color Overlays</h3>
+                        <div class="overlay-controls">
+                            <label>
+                                Overlay Color:
+                                <input type="color" id="overlayColor" value="#ff0000">
+                            </label>
+                            <label>
+                                Overlay Opacity:
+                                <input type="range" id="overlayOpacity" min="0" max="100" value="0">
+                                <span class="value-display" id="overlayOpacityValue">0%</span>
+                            </label>
+                            <label>
+                                Blend Mode:
+                                <select id="blendMode">
+                                    <option value="multiply">Multiply</option>
+                                    <option value="screen">Screen</option>
+                                    <option value="overlay">Overlay</option>
+                                    <option value="soft-light">Soft Light</option>
+                                    <option value="hard-light">Hard Light</option>
+                                    <option value="color">Color</option>
+                                    <option value="hue">Hue</option>
+                                    <option value="saturation">Saturation</option>
+                                    <option value="luminosity">Luminosity</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>✨ Effects</h3>
+                        <div class="effect-controls">
+                            <label>
+                                <input type="checkbox" id="vignette"> Vignette Effect
+                            </label>
+                            <label>
+                                <input type="checkbox" id="noise"> Noise Effect
+                            </label>
+                            <label>
+                                <input type="checkbox" id="pixelate"> Pixelate
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-section">
+                        <h3>🔄 Actions</h3>
+                        <div class="action-controls">
+                            <button id="resetBtn" class="reset-btn">🔄 Reset</button>
+                            <button id="randomBtn" class="random-btn">🎲 Random</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for Bunchie</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html> 
