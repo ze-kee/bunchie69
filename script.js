@@ -168,7 +168,7 @@ class ImageColorChanger {
             this.displayImage();
             this.showDownloadButton();
         };
-        img.src = './bunchie22.png';
+        img.src = '/bunchie22.png';
     }
 
     handleImageUpload(e) {
