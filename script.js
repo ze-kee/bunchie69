@@ -55,12 +55,7 @@ class ImageColorChanger {
     }
 
     setupEventListeners() {
-        // File upload
-        const uploadArea = document.getElementById('uploadArea');
-        const imageInput = document.getElementById('imageInput');
-        
-        uploadArea.addEventListener('click', () => imageInput.click());
-        imageInput.addEventListener('change', (e) => this.handleImageUpload(e));
+        // No file upload needed - using default bunchie22.png image
 
         // Basic adjustments
         document.getElementById('brightness').addEventListener('input', (e) => {
@@ -137,27 +132,7 @@ class ImageColorChanger {
     }
 
     setupDragAndDrop() {
-        const uploadArea = document.getElementById('uploadArea');
-        
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = 'rgba(102, 126, 234, 0.1)';
-        });
-
-        uploadArea.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = 'rgba(255,255,255,0.9)';
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = 'rgba(255,255,255,0.9)';
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0 && files[0].type.startsWith('image/')) {
-                this.loadImage(files[0]);
-            }
-        });
+        // No drag and drop needed - using default bunchie22.png image
     }
 
     loadDefaultImage() {
@@ -167,31 +142,13 @@ class ImageColorChanger {
             this.currentImage = img;
             this.displayImage();
             this.showDownloadButton();
+            // Hide the default image area once the image is loaded on canvas
+            document.getElementById('defaultImageArea').style.display = 'none';
         };
         img.src = '/bunchie22.png';
     }
 
-    handleImageUpload(e) {
-        const file = e.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            this.loadImage(file);
-        }
-    }
 
-    loadImage(file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-                this.originalImage = img;
-                this.currentImage = img;
-                this.displayImage();
-                this.showDownloadButton();
-            };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
 
     displayImage() {
         if (!this.currentImage) return;
@@ -517,7 +474,7 @@ class ImageColorChanger {
 
     showDownloadButton() {
         document.getElementById('downloadBtn').style.display = 'block';
-        document.getElementById('uploadArea').style.display = 'none';
+        document.getElementById('defaultImageArea').style.display = 'none';
     }
 
     downloadImage() {
