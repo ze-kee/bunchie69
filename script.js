@@ -145,7 +145,7 @@ class ImageColorChanger {
             // Hide the default image area once the image is loaded on canvas
             document.getElementById('defaultImageArea').style.display = 'none';
         };
-        img.src = '/bunchie22.png';
+        img.src = './bunchie22.png';
     }
 
 
