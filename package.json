@@ -1,6 +1,7 @@
 {
   "name": "image-color-changer",
   "version": "1.0.0",
+  "type": "module",
   "description": "A web application for changing image colors with powerful filters and effects",
   "main": "index.js",
   "scripts": {
@@ -12,9 +13,10 @@
     "html2canvas": "^1.4.1"
   },
   "devDependencies": {
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "vite-plugin-static-copy": "^0.17.0"
   },
   "keywords": ["image", "color", "filter", "editor", "canvas"],
   "author": "",
   "license": "MIT"
-} 
+}
